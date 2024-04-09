@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.gridgum.com/templates/Travel-agency/search-flights.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2024 10:13:44 GMT -->
+<head>
+    <title>Booking page - Travel agency bootstrap theme</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+    <link href="https://demo.gridgum.com/templates/Travel-agency/css/bootstrap.css" rel="stylesheet">
+    <link href="https://demo.gridgum.com/templates/Travel-agency/css/font-awesome.css" rel="stylesheet">
+    <link href="https://demo.gridgum.com/templates/Travel-agency/css/animate.css" rel="stylesheet">
+    <link href="https://demo.gridgum.com/templates/Travel-agency/css/select2.css" rel="stylesheet">
+    <link href="https://demo.gridgum.com/templates/Travel-agency/css/smoothness/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+    <link href="https://demo.gridgum.com/templates/Travel-agency/css/style.css" rel="stylesheet">
+
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery.js"></script>
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery-ui.js"></script>
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery.easing.1.3.js"></script>
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/superfish.js"></script>
+
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/select2.js"></script>
+
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery.parallax-1.1.3.resize.js"></script>
+
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/SmoothScroll.js"></script>
+
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery.appear.js"></script>
+
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery.caroufredsel.js"></script>
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery.touchSwipe.min.js"></script>
+
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/jquery.ui.totop.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA85u2f3GPNnJhIJeggViAfB8zMkUbCHNE"></script>
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/googlemap2.js"></script>
+
+    <script src="https://demo.gridgum.com/templates/Travel-agency/js/script.js"></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="not-front page-post">
+
+<div id="main">
+
+    <div th:insert="~{header::header}"></div>
+
+
+
+
+
+
+    <div id="content">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="sidebar-block">
+                        <form id="form2" method="post" action="javascript:void(0);">
+                            <div class="col-sm-12 no-padding">
+                                <div class="input1_wrapper">
+                                    <label>Flying from:</label>
+                                    <div class="input2_inner">
+                                        <input type="text" name="from" class="input" th:value="${session['from']}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-sm-12 no-padding margin-top">
+                                <div class="input1_wrapper">
+                                    <label>To:</label>
+                                    <div class="input2_inner">
+                                        <input type="text" class="input" name="to" th:value="${session['to']}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-sm-12 no-padding margin-top">
+                                <div class="input1_wrapper">
+                                    <label>Departing:</label>
+                                    <div class="input1_inner">
+                                        <input type="text" class="input datepicker" name="departingDate" th:value="${session['departingDate']}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-sm-12 no-padding margin-top">
+                                <div class="input1_wrapper">
+                                    <label>Returning:</label>
+                                    <div class="input1_inner">
+                                        <input type="text" class="input datepicker" name="returningDate" th:value="${session['returningDate']}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-sm-12 no-padding margin-top">
+                                <div class="input2_wrapper">
+                                    <label class="col-md-6" style="padding-left:0;padding-top:12px;">Adults:</label>
+                                    <div class="input2_inner col-md-6" style="padding-right:0;padding-left:0;">
+                                        <input type="text" class="form-control" id="adults" name="adults" th:value="${session['adults']}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-sm-12 no-padding margin-top">
+                                <div class="input1_wrapper">
+                                    <label class="col-md-6" style="padding-left:0;padding-top:12px;">Children:</label>
+                                    <div class="input2_inner col-md-6" style="padding-right:0;padding-left:0;">
+                                        <input type="text" class="input"  id="children" name="children" th:value="${session['children']}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-sm-12 no-padding margin-top">
+                                <div class="select1_wrapper">
+                                    <label>Cabin:</label>
+                                    <div class="select1_inner">
+                                        <select class="select2 select" style="width: 100%">
+                                            <option value="1">Economy</option>
+                                            <option value="2">Premium Economy</option>
+                                            <option value="3">Business</option>
+                                            <option value="4">First</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <label class="col-md-6" style="padding-left:0;padding-top:12px;"></label>
+                            <div class="no-padding margin-top col-md-6 text-right" style="margin-top:30px;">
+                                <button onclick="submitForms()" class="btn btn-default btn-cf-submit" style="width:100%;">SEARCH</button>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </form>
+
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="margin-top"></div>
+
+                    <div class="star_rating_wrapper">
+                    <div class="title">Top Filters</div>
+                    <div class="content">
+                        <div class="star_rating">
+                            <form>
+                                <div>
+                                    <input id="checkbox-1" class="checkbox1-custom" name="checkbox-1" type="checkbox" checked>
+                                    <label for="checkbox-1" class="checkbox1-custom-label"><span>nonstop</span></label>
+                                </div>
+                                <div>
+                                    <input id="checkbox-2" class="checkbox1-custom" name="checkbox-2" type="checkbox">
+                                    <label for="checkbox-2" class="checkbox1-custom-label"><span>1 Stop</span></label>
+                                </div>
+                                <div>
+                                    <input id="checkbox-3" class="checkbox1-custom" name="checkbox-3" type="checkbox">
+                                    <label for="checkbox-3" class="checkbox1-custom-label"><span>2+ Stops</span></label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    <div class="clearfix"></div>
+                    <div class="margin-top"></div>
+                    <div class="sm_slider sm_slider1">
+                        <a class="sm_slider_prev" href="#"></a>
+                        <a class="sm_slider_next" href="#"></a>
+                        <div class="">
+                            <div class="carousel-box">
+                                <div class="inner">
+                                    <div class="carousel main">
+                                        <ul>
+                                            <li>
+                                                <div class="sm_slider_inner">
+                                                    <div class="txt1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</div>
+                                                    <div class="txt2">George Smith</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="sm_slider_inner">
+                                                    <div class="txt1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</div>
+                                                    <div class="txt2">Adam Parker</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-9">
+<!--                    action="javascript:;"-->
+                    <form id="form1" th:action="@{/submit}" class="form3 clearfix">
+                        <div class="select1_wrapper txt">
+                            <label>Sort by:</label>
+                        </div>
+                        <div class="select1_wrapper sel2">
+                            <div class="select1_inner">
+                                <select id="sortByTitle" class="select2 select" style="width: 100%" onchange="sortBy()">
+                                    <option id="qatar" value="Qatar">Qatar</option>
+                                    <option id="Lufthansa" value="Lufthansa">Lufthansa</option>
+                                    <option id ="air berlin" value="Air Berlin">Air Berlin</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select1_wrapper sel2">
+                            <div class="select1_inner">
+                                <select class="select2 select" style="width: 100%">
+                                    <option value="1">Price (low)</option>
+                                    <option value="1">Price (high)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select1_wrapper sel2">
+                            <div class="select1_inner">
+                                <select class="select2 select" style="width: 100%">
+                                    <option value="1">Top Seller</option>
+
+                                    <option value="2">Down</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                    <div th:fragment="airlines-table">
+                        <div class="row">
+                            <div th:each="airline : ${airlines}" class="col-sm-4">
+                                <div  class="thumb4 airline">
+                                    <div class="thumbnail clearfix">
+                                        <figure>
+                                            <img th:src="@{images/{imageName}(imageName=${airline.image})}" alt="" class="img-responsive">
+                                        </figure>
+                                        <div class="caption">
+                                            <div th:text="${airline.getToFrom()}" class="txt1"></div>
+    
+                                            <div class="txt3 clearfix">
+                                                <div class="left_side">
+                                                    <div class="price">$<span th:text="${airline.price}"></span></div>
+                                                    <div class="nums">avg/person</div>
+                                                </div>
+    
+                                                <div class="right_side"><a class="btn-default btn1" th:href="@{/booking}">Details</a></div>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 
+
+
+                    <div class="pager_wrapper">
+                        <ul class="pager clearfix">
+                            <li class="prev"><a href="#">Previous</a></li>
+                            <li class="li"><a href="#">1</a></li>
+                            <li class="active"><a href="#">2</a></li>
+                            <li class="li"><a href="#">3</a></li>
+                            <li class="li"><a href="#">4</a></li>
+                            <li class="li"><a href="#">5</a></li>
+                            <li class="li"><a href="#">6</a></li>
+                            <li class="li"><a href="#">7</a></li>
+                            <li class="li"><a href="#">8</a></li>
+                            <li class="li"><a href="#">9</a></li>
+                            <li class="li"><a href="#">10</a></li>
+                            <li class="next"><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="bot1_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo2_wrapper">
+                        <a href="https://demo.gridgum.com/templates/Travel-agency/index.html" class="logo2">
+                            <img src="https://demo.gridgum.com/templates/Travel-agency/images/logo2.png" alt="" class="img-responsive">
+                        </a>
+                    </div>
+                    <p>
+                        Nam liber tempor cum soluta nobis option congue nihil imperdiet doming id quod mazim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.
+                    </p>
+                    <p>
+                        <a href="#" class="btn-default btn2">Read More</a>
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="bot1_title">Travel Specialists</div>
+                    <ul class="ul1">
+                        <li><a href="#">First Class Flights</a></li>
+                        <li><a href="#">Accessible Travel</a></li>
+                        <li><a href="#">Amazing Cruises</a></li>
+                    </ul>
+
+                    <div class="social2_wrapper">
+                        <ul class="social2 clearfix">
+                            <li class="nav1"><a href="#"></a></li>
+                            <li class="nav2"><a href="#"></a></li>
+                            <li class="nav3"><a href="#"></a></li>
+                            <li class="nav4"><a href="#"></a></li>
+                            <li class="nav5"><a href="#"></a></li>
+                            <li class="nav6"><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-sm-3">
+                    <div class="bot1_title">Our Twitter</div>
+                    <div class="twits1">
+                        <div class="twit1">
+                            <a href="#"> @travel</a> Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                            <div class="date">5 minutes ago</div>
+                        </div>
+                        <div class="twit1">
+                            <a href="#">@leo</a> Nam liber tempor cum soluta nobis option congue nihil imperdiet doming id quod mazim.
+                            <div class="date">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="bot1_title">Newsletter</div>
+                    <div class="newsletter_block">
+                        <div class="txt1">Inspiration, ideas, news and your feedback.</div>
+                        <div class="newsletter-wrapper clearfix">
+                            <form class="newsletter" action="javascript:;">
+                                <input type="text" name="s" value='Email Address' onBlur="if(this.value=='') this.value='Email Address'" onFocus="if(this.value =='Email Address' ) this.value=''">
+                                <a href="#" class="btn-default btn3">SUBMIT</a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="phone2">1-917-338-6831</div>
+                    <div class="support1"><a href="#">support@templates-support.com</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bot2_wrapper">
+        <div class="container">
+            <div class="left_side">
+                Copyright © 2017 <a href="#" target="_blank"><strong>MECOVACHE</strong></a>   <span>|</span>   <a href="#">Privacy Policy</a>   <span>|</span>   <a href="#">About Us</a>   <span>|</span>   <a href="#">FAQ</a>   <span>|</span>   <a href="#">Contact Support</a>
+            </div>
+            <div class="right_side">Designed by <a href="#" target="_blank"><strong>MECOVACHE</strong></a></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://demo.gridgum.com/templates/Travel-agency/js/bootstrap.min.js"></script>
+<script>
+    function sortBy() {
+        var sortBy = document.getElementById("sortByTitle").value;
+        console.log("sortBy function called with value: " + sortBy);
+        alert("hi");
+        $.ajax({
+            type: "GET",
+            url: "/book-package",
+            data: { sortBy: sortBy },
+            success: function (data) {
+                // console.log(data);
+                $("#airlinesTable").html(data.body);
+            }
+        });
+    }
+</script>
+<!-- <script th:inline="javascript">
+    var selectedAirline = $('#sortByTitle').val();
+    var qatarValue = $('#sortByTitle option[value="Qatar"]').is(':selected')
+    console.log('qt',qatarValue)
+    var lufthansaValue = $('#sortByTitle option[value="Lufthansa"]').is(':selected') 
+    function submitForms() {
+        var form1Data = {
+            qatar: qatarValue,
+            lufthansa: lufthansaValue
+            // Add other Form 1 fields as needed
+        };
+
+        var form2Data = {
+            children: $('#children').val(),
+            adults : $('#adults').val()
+            // Add other Form 2 fields as needed
+        };
+
+        var formData = $.extend({}, form1Data, form2Data);
+
+        $.ajax({
+            type: 'POST',
+            url: '/submitform',
+            data: JSON.stringify(formData),
+            contentType: 'application/json',
+            success: function(response) {
+                // Handle success response
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+            }
+        });
+    }
+</script> -->
+</body>
+
+<!-- Mirrored from demo.gridgum.com/templates/Travel-agency/search-flights.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2024 10:13:44 GMT -->
+</html>

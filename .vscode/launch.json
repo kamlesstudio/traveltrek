@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TravelTrekkApplication<TravelTrekk>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.TravelTrekk.TravelTrekkApplication",
+            "projectName": "TravelTrekk",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

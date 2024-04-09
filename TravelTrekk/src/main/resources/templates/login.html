@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login - Travel Trekk</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+  <link rel="stylesheet" th:href="@{/css/login.css}" href="../static/css/login.css">
+
+
+  <link href="https://demo.gridgum.com/templates/Travel-agency/css/font-awesome.css" rel="stylesheet">
+
+</head>
+<body style="
+background-image: url('https://demo.gridgum.com/templates/Travel-agency/images/gallery08.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+">
+
+<form method="get" action="/regions" class="form">
+  <p class="form-title">Sign in to your account</p>
+  <div class="input-container">
+    <input type="text" name="login" placeholder="Enter email">
+    <span>
+          </span>
+  </div>
+  <div class="input-container">
+    <input type="password" placeholder="Enter password">
+  </div>
+  <button type="submit" class="submit">
+    Sign in
+  </button>
+
+  <p class="signup-link">
+    No account?
+    <a href="">Sign up</a>
+  </p>
+</form>
+
+</body>
+</html>

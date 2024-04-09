@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Airlines</title>
+</head>
+<body>
+<h1>Airlines</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>To</th>
+        <th>From</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="airline : ${airlines}">
+        <td th:text="${airline.title}"></td>
+        <td th:text="${airline.price}"></td>
+        <td th:text="${airline.image}"></td>
+        <td th:text="${airline.to}"></td>
+        <td th:text="${airline.from}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

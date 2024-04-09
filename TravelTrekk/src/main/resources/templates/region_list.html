@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/regions/filter}" method="post">
+    <input type="text" name="keyword" placeholder="Search by title" />
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <div th:each="region : ${regions}">
+        <div class="card">
+<!--            <a th:href="@{/regions/{id}(id=${region.id})}">-->
+                <img th:src="@{images/{imageName}(imageName=${region.image})}" class="card-img-top" alt="Book Cover"/>
+            <div class="card-body">
+                <h5 class="card-title" th:text="${region.id}"></h5>
+
+                <h5 class="card-title" th:text="${region.title}"></h5>
+                <p class="card-text" th:text="${region.year}"></p>
+                <h5 class="card-title" th:text="${region.description}"></h5>
+                <p>Rating: <span id ="id" th:text="${region.averageRating}"></span></p>
+                <div class="star-rating" th:id="'starRating_' + ${region.id}"></div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
